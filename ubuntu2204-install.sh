@@ -27,7 +27,10 @@ npm install yarn pm2 -g
 add-apt-repository ppa:qbittorrent-team/qbittorrent-stable -y
 apt update
 apt install qbittorrent-nox -y
-qbittorrent-nox -d
+mkdir -p ~/.config ~/.config/qBittorrent
+echo -e "[LegalNotice]\nAccepted=true" >> ~/.config/qBittorrent/qBittorrent.conf
+pm2 start "/usr/bin/qbittorrent-nox" --name qbittorrent
+#qbittorrent-nox -d
 # Login: admin/adminadmin
 
 # Puppeteer
